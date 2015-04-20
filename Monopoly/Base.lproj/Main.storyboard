@@ -221,7 +221,7 @@
                                             <constraint firstAttribute="height" constant="58" id="Odh-T2-f9U"/>
                                             <constraint firstAttribute="width" constant="129" id="q4r-dD-eJp"/>
                                         </constraints>
-                                        <state key="normal" title="Done"/>
+                                        <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="performSettings:" destination="yMr-TZ-mzt" eventType="touchUpInside" id="YJw-rq-C4y"/>
                                         </connections>
