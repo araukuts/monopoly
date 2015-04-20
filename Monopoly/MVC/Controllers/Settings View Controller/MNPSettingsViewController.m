@@ -7,6 +7,14 @@
 //
 
 #import "MNPSettingsViewController.h"
+#import "MNPGameManager.h"
+
+
+@interface MNPSettingsViewController ()
+
+@property (strong,nonatomic) MNPGameManager *gameManager;
+
+@end
 
 @implementation MNPSettingsViewController
 
@@ -25,6 +33,12 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
 
   [_countPlayers addTarget:self action:@selector(setUpPlayersName) forControlEvents:UIControlEventValueChanged];
   [self setUpRegistrationFieldWithMask:(1<<1)];
+
+  UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+  [self.view addGestureRecognizer:tapRecognizer];
+
+  self.gameManager = [MNPGameManager sharedManager];
+  self.navigationItem.hidesBackButton = YES;
 }
 
 
@@ -64,6 +78,7 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
   else {
     _firstPlayerIcon.hidden = YES;
     _playerOneName.hidden = YES;
+    _playerOneName.text = @"";
   }
 
   if (mask & (1<<2)) {
@@ -73,15 +88,20 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
   else {
     _secondPlayerIcon.hidden = YES;
     _playerTwoName.hidden = YES;
+    _playerTwoName.text = @"";
+
   }
 
   if (mask & (1<<3)) {
     _thirdPlayerIcon.hidden = NO;
     _playerThreeName.hidden = NO;
+    
   }
   else {
     _thirdPlayerIcon.hidden = YES;
     _playerThreeName.hidden = YES;
+    _playerThreeName.text = @"";
+
   }
 
   if (mask & (1<<4)) {
@@ -91,8 +111,26 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
   else {
     _fourthPlayerIcon.hidden = YES;
     _playerFourName.hidden = YES;
+    _playerFourName.text = @"";
   }
 
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+
+  [self.view endEditing:YES];
+}
+
+#pragma mark - IBAction's methods
+
+- (IBAction)performSettings:(id)sender {
+
+  NSArray *playersInfo = @[];
+  for (NSInteger index = 0; index < _countPlayers.selectedSegmentIndex; ++index) {
+  
+  }
+  [_gameManager savePlayersInformation:playersInfo];
+  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

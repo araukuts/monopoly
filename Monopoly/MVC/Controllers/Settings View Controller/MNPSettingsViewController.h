@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class MNPGameManager;
+
 @interface MNPSettingsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *countPlayers;
@@ -17,9 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *playerThreeName;
 @property (weak, nonatomic) IBOutlet UITextField *playerFourName;
 
-@property (weak, nonatomic) IBOutlet UIImageView *firstPlayerIcon;
-@property (weak, nonatomic) IBOutlet UIImageView *secondPlayerIcon;
-@property (weak, nonatomic) IBOutlet UIImageView *thirdPlayerIcon;
-@property (weak, nonatomic) IBOutlet UIImageView *fourthPlayerIcon;
+@property (strong, nonatomic) IBOutlet UIImageView *firstPlayerIcon;
+@property (strong, nonatomic) IBOutlet UIImageView *secondPlayerIcon;
+@property (strong, nonatomic) IBOutlet UIImageView *thirdPlayerIcon;
+@property (strong, nonatomic) IBOutlet UIImageView *fourthPlayerIcon;
 
 @end
