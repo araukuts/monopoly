@@ -1,13 +1,13 @@
 //
-//  MNPGameManager.m
+//  MNPGameViewController.h
 //  Monopoly
 //
 //  Created by Andrew Raukut on 28.04.15.
 //  Copyright (c) 2015 raukutsCorporation. All rights reserved.
 //
 
-#import "MNPGameManager.h"
+#import <UIKit/UIKit.h>
 
-@implementation MNPGameManager
+@interface MNPGameViewController : UIViewController
 
 @end
