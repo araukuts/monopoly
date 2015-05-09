@@ -7,12 +7,13 @@
 //
 
 #import "MNPSettingsViewController.h"
-#import "MNPGameManager.h"
+#import "MNPDataManager.h"
+#import "MNPPlayer.h"
 
 
 @interface MNPSettingsViewController ()
 
-@property (strong,nonatomic) MNPGameManager *gameManager;
+@property (strong,nonatomic) MNPDataManager *gameManager;
 
 @end
 
@@ -37,7 +38,7 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
   UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
   [self.view addGestureRecognizer:tapRecognizer];
 
-  self.gameManager = [MNPGameManager sharedManager];
+  self.gameManager = [MNPDataManager sharedManager];
   self.navigationItem.hidesBackButton = YES;
 }
 
@@ -125,11 +126,33 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
 
 - (IBAction)performSettings:(id)sender {
 
-  NSArray *playersInfo = @[];
-  for (NSInteger index = 0; index < _countPlayers.selectedSegmentIndex; ++index) {
-  
+  NSMutableArray *playersInfo = [[NSMutableArray alloc] initWithObjects:nil];
+  for (NSInteger index = 0; index <= _countPlayers.selectedSegmentIndex; ++index) {
+    MNPPlayer *player;
+    switch (index) {
+      case 0:
+        player = [[MNPPlayer alloc] initPlayerWithName:_playerOneName.text
+                                                 token:_firstPlayerIcon.image];
+      break;
+
+      case 1:
+        player = [[MNPPlayer alloc] initPlayerWithName:_playerTwoName.text
+                                                 token:_secondPlayerIcon.image];
+        break;
+      case 2:
+        player = [[MNPPlayer alloc] initPlayerWithName:_playerThreeName.text
+                                                 token:_thirdPlayerIcon.image];
+        break;
+      case 3:
+        player = [[MNPPlayer alloc] initPlayerWithName:_playerFourName.text
+                                                 token:_fourthPlayerIcon.image];
+        break;
+
+    }
+
+    [playersInfo addObject:player];
   }
-  [_gameManager savePlayersInformation:playersInfo];
+  [_gameManager savePlayersInformation:(NSArray *)playersInfo];
   [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

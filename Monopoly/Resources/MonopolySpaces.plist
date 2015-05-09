@@ -3,12 +3,20 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>x</key>
+		<string>703</string>
+		<key>y</key>
+		<string>829</string>
 		<key>spaceType</key>
-		<real>0</real>
+		<integer>0</integer>
 		<key>title</key>
 		<string>Go</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>621</string>
+		<key>y</key>
+		<string>829</string>
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>color</key>
@@ -36,12 +44,20 @@
 		<string>Mediterranean Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>557</string>
+		<key>y</key>
+		<string>829</string>
 		<key>title</key>
 		<string>Community Chest</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>493</string>
+		<key>y</key>
+		<string>829</string>
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>related</key>
@@ -67,12 +83,20 @@
 		<string>Baltic Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>429</string>
+		<key>y</key>
+		<string>829</string>
 		<key>title</key>
 		<string>Income Tax</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>365</string>
+		<key>y</key>
+		<string>829</string>
 		<key>spaceType</key>
 		<integer>1</integer>
 		<key>propertyType</key>
@@ -96,6 +120,10 @@
 		<string>Reading Railroad</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>301</string>
+		<key>y</key>
+		<string>829</string>
 		<key>related</key>
 		<array>
 			<integer>8</integer>
@@ -122,12 +150,20 @@
 		<string>Oriental Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>237</string>
+		<key>y</key>
+		<string>829</string>
 		<key>title</key>
 		<string>Chance</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>173</string>
+		<key>y</key>
+		<string>829</string>
 		<key>related</key>
 		<array>
 			<integer>6</integer>
@@ -154,6 +190,10 @@
 		<string>Vermont Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>109</string>
+		<key>y</key>
+		<string>829</string>
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>related</key>
@@ -180,12 +220,20 @@
 		<string>Connecticut Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>36</string>
+		<key>y</key>
+		<string>829</string>
 		<key>spaceType</key>
 		<integer>0</integer>
 		<key>title</key>
 		<string>In Jail/Just Visiting</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>748</string>
 		<key>related</key>
 		<array>
 			<integer>13</integer>
@@ -212,6 +260,10 @@
 		<string>St. Charles Place</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>684</string>
 		<key>related</key>
 		<array>
 			<integer>28</integer>
@@ -224,6 +276,10 @@
 		<string>Electric Company</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>620</string>
 		<key>related</key>
 		<array>
 			<integer>11</integer>
@@ -250,6 +306,10 @@
 		<string>States Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>556</string>
 		<key>related</key>
 		<array>
 			<integer>13</integer>
@@ -276,6 +336,10 @@
 		<string>Virginia Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>492</string>
 		<key>related</key>
 		<array>
 			<integer>5</integer>
@@ -297,6 +361,10 @@
 		<string>Pennsylvania Railroad</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>428</string>
 		<key>related</key>
 		<array>
 			<integer>18</integer>
@@ -323,12 +391,20 @@
 		<string>St. James Place</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>364</string>
 		<key>title</key>
 		<string>Community Chest</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>300</string>
 		<key>related</key>
 		<array>
 			<integer>16</integer>
@@ -355,6 +431,10 @@
 		<string>Tennessee Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>236</string>
 		<key>related</key>
 		<array>
 			<integer>16</integer>
@@ -381,12 +461,20 @@
 		<string>New York Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>33</string>
+		<key>y</key>
+		<string>166</string>
 		<key>title</key>
 		<string>Free Parking</string>
 		<key>spaceType</key>
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>119</string>
+		<key>y</key>
+		<string>166</string>
 		<key>related</key>
 		<array>
 			<integer>23</integer>
@@ -413,12 +501,20 @@
 		<string>Kentucky Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>183</string>
+		<key>y</key>
+		<string>166</string>
 		<key>title</key>
 		<string>Chance</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>247</string>
+		<key>y</key>
+		<string>166</string>
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>related</key>
@@ -445,6 +541,10 @@
 		<string>Indiana Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>311</string>
+		<key>y</key>
+		<string>166</string>
 		<key>related</key>
 		<array>
 			<integer>21</integer>
@@ -471,6 +571,10 @@
 		<string>Illinois Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>375</string>
+		<key>y</key>
+		<string>166</string>
 		<key>related</key>
 		<array>
 			<integer>5</integer>
@@ -492,6 +596,10 @@
 		<string>B&amp;O Railroad</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>439</string>
+		<key>y</key>
+		<string>166</string>
 		<key>related</key>
 		<array>
 			<integer>27</integer>
@@ -518,6 +626,10 @@
 		<string>Atlantic Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>503</string>
+		<key>y</key>
+		<string>166</string>
 		<key>related</key>
 		<array>
 			<integer>26</integer>
@@ -544,6 +656,10 @@
 		<string>Ventnor Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>567</string>
+		<key>y</key>
+		<string>166</string>
 		<key>related</key>
 		<array>
 			<integer>12</integer>
@@ -556,6 +672,10 @@
 		<string>Water Works</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>631</string>
+		<key>y</key>
+		<string>166</string>
 		<key>related</key>
 		<array>
 			<integer>26</integer>
@@ -582,12 +702,20 @@
 		<string>Marvin Gardens</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>165</string>
 		<key>title</key>
 		<string>Go to Jail</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>246</string>
 		<key>related</key>
 		<array>
 			<integer>32</integer>
@@ -614,6 +742,10 @@
 		<string>Pacific Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>310</string>
 		<key>related</key>
 		<array>
 			<integer>31</integer>
@@ -640,12 +772,20 @@
 		<string>North Carolina Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>374</string>
 		<key>title</key>
 		<string>Community Chest</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>438</string>
 		<key>related</key>
 		<array>
 			<integer>31</integer>
@@ -672,6 +812,10 @@
 		<string>Pennsylvania Avenue</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>502</string>
 		<key>spaceType</key>
 		<integer>1</integer>
 		<key>related</key>
@@ -693,12 +837,20 @@
 		<string>Short Line</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>566</string>
 		<key>title</key>
 		<string>Chance</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>630</string>
 		<key>related</key>
 		<array>
 			<integer>39</integer>
@@ -724,12 +876,20 @@
 		<string>Park Place</string>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>696</string>
 		<key>title</key>
 		<string>Luxury Tax</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>x</key>
+		<string>705</string>
+		<key>y</key>
+		<string>760</string>
 		<key>related</key>
 		<array>
 			<integer>37</integer>

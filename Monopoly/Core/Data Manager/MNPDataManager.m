@@ -51,10 +51,7 @@
 
 - (void)savePlayersInformation:(NSArray *)playersInfo {
   self.players = playersInfo;
-  for (int idx = 0; idx < playersInfo.count; ++idx) {
-    MNPPlayer *player = _players[idx];
-    NSLog(@"%@",player.playerName);
-  }
+
 }
 
 

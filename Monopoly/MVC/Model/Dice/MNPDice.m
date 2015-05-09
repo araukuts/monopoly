@@ -10,4 +10,8 @@
 
 @implementation MNPDice
 
++ (NSInteger) roll {
+  return arc4random()%6 + 1 + arc4random()%6 + 1;
+}
+
 @end

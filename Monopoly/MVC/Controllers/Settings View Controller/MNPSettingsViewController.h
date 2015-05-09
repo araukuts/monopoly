@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class MNPGameManager;
+@class MNPDataManager;
 
 @interface MNPSettingsViewController : UIViewController
 

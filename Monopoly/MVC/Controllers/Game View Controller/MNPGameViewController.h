@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MNPDataManager.h"
+#import "MNPGameManager.h"
 
-@interface MNPGameViewController : UIViewController
+@interface MNPGameViewController : UIViewController <MNPGameManagerDelegate>
 
 @end

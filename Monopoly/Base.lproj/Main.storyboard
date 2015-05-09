@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aKA-di-z5V">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
@@ -49,6 +50,9 @@
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="9JV-ZG-l6Q" kind="push" id="Wek-Js-SYM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa0-Sz-8tz">
                                 <rect key="frame" x="124" y="736" width="520" height="100"/>
@@ -61,13 +65,13 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yMr-TZ-mzt" kind="show" id="KMG-4a-46z"/>
+                                    <segue destination="yMr-TZ-mzt" kind="push" id="Lxz-dL-iOk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monopoly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6V-vk-5Mv">
                                 <rect key="frame" x="316" y="490" width="137" height="44"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f97-lt-Bh4">
@@ -112,7 +116,63 @@
             </objects>
             <point key="canvasLocation" x="458" y="486"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Monopoly-->
+        <scene sceneID="caB-6i-cSo">
+            <objects>
+                <viewController id="9JV-ZG-l6Q" customClass="MNPGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="myj-iP-c4Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="pJJ-Pb-7iC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6wj-ye-RQU">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monopolyBoard.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="G4l-8J-qI2">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MM0-8p-tZf">
+                                <rect key="frame" x="705" y="246" width="30" height="30"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfX-vj-fWc">
+                                <rect key="frame" x="173" y="925" width="423" height="79"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ROLL!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rollButton:" destination="9JV-ZG-l6Q" eventType="touchUpInside" id="JzU-Uj-eDX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lv8-a1-lKO">
+                                <rect key="frame" x="363" y="86" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gp-JD-dXE">
+                                <rect key="frame" x="695" y="157" width="50" height="50"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G4l-8J-qI2" firstAttribute="leading" secondItem="6wj-ye-RQU" secondAttribute="leading" id="IW9-tX-eWr"/>
+                            <constraint firstItem="pJJ-Pb-7iC" firstAttribute="top" secondItem="G4l-8J-qI2" secondAttribute="bottom" id="NjP-Wo-CCQ"/>
+                            <constraint firstItem="G4l-8J-qI2" firstAttribute="top" secondItem="6wj-ye-RQU" secondAttribute="top" id="cqM-MA-Noy"/>
+                            <constraint firstAttribute="trailing" secondItem="G4l-8J-qI2" secondAttribute="trailing" id="qlI-mR-iCZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Monopoly" id="eKL-gX-DsA"/>
+                    <connections>
+                        <outlet property="boardImageView" destination="G4l-8J-qI2" id="wlA-Hw-QGC"/>
+                        <outlet property="currentPlayerLbl" destination="Lv8-a1-lKO" id="gCC-e9-MZi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u26-uj-o0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2011" y="-816"/>
+        </scene>
+        <!--Settings-->
         <scene sceneID="69U-hM-ejK">
             <objects>
                 <viewController id="yMr-TZ-mzt" customClass="MNPSettingsViewController" sceneMemberID="viewController">
@@ -147,7 +207,7 @@
                                             <constraint firstAttribute="width" constant="224" id="WhL-6r-h6J"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 1 name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAR-0R-ThC">
@@ -186,28 +246,28 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bullettrain.png" translatesAutoresizingMaskIntoConstraints="NO" id="bu2-xh-w7d">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_yellow.png" translatesAutoresizingMaskIntoConstraints="NO" id="bu2-xh-w7d">
                                         <rect key="frame" x="443" y="199" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="hxi-fM-JKK"/>
                                             <constraint firstAttribute="height" constant="128" id="sko-QD-ie4"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="y7a-FL-Tde">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_orange.png" translatesAutoresizingMaskIntoConstraints="NO" id="y7a-FL-Tde">
                                         <rect key="frame" x="443" y="370" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="WP0-JG-74Y"/>
                                             <constraint firstAttribute="width" constant="240" id="fTl-hL-Bp1"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog.png" translatesAutoresizingMaskIntoConstraints="NO" id="lSn-Wl-vee">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="lSn-Wl-vee">
                                         <rect key="frame" x="443" y="547" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="cOr-ap-kNc"/>
                                             <constraint firstAttribute="width" constant="240" id="kN9-Ki-6Tj"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hat.png" translatesAutoresizingMaskIntoConstraints="NO" id="YP2-Tw-wbw">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="YP2-Tw-wbw">
                                         <rect key="frame" x="443" y="747" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="eJM-An-VDj"/>
@@ -270,6 +330,7 @@
                             <constraint firstItem="5h1-9D-Uvw" firstAttribute="top" secondItem="H5W-jM-4N0" secondAttribute="top" id="yCh-Di-yGd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="LAZ-vV-1rh"/>
                     <connections>
                         <outlet property="countPlayers" destination="IEs-8Y-ebl" id="bFg-rR-OlD"/>
                         <outlet property="firstPlayerIcon" destination="bu2-xh-w7d" id="SHQ-B2-wKP"/>
@@ -284,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFX-sR-98t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="500"/>
+            <point key="canvasLocation" x="1748" y="454"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="epM-fR-ecf">
@@ -306,9 +367,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bullettrain.png" width="100" height="100"/>
-        <image name="car.png" width="100" height="100"/>
-        <image name="dog.png" width="100" height="100"/>
-        <image name="hat.png" width="100" height="100"/>
+        <image name="circle_blue.png" width="128" height="128"/>
+        <image name="circle_green.png" width="128" height="128"/>
+        <image name="circle_orange.png" width="128" height="128"/>
+        <image name="circle_yellow.png" width="128" height="128"/>
+        <image name="monopolyBoard.jpg" width="702" height="700"/>
     </resources>
 </document>

@@ -7,7 +7,36 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MNPDataManager.h"
+#import "MNPPlayer.h"
 
-@interface MNPGameManager : NSObject
+@class MNPGameManager;
+
+
+@protocol MNPGameManagerDelegate <NSObject>
+
+@required
+
+- (void)gameManager:(MNPGameManager *)gameManager didPerformActionWithPlayer:(MNPPlayer *)player;
+
+@end
+
+
+@interface MNPGameManager : NSObject <MNPDataManagerDelegate>
+
+@property (nonatomic, strong) id <MNPGameManagerDelegate> delegate;
+
+// Init methods
+
++ (id)sharedManager;
+
+// Public methods
+
+- (MNPPlayer *)getCurrentPlayerInfo;
+
+// Performing player action
+
+- (void)performCurrentPlayerAction;
+
 
 @end
