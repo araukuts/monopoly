@@ -10,6 +10,8 @@
 #import "MNPDataManager.h"
 #import "MNPPlayer.h"
 #import "TPKeyboardAvoidingScrollView.h"
+#import "MNPGameViewController.h"
+#import "MNPMenuViewController.h"
 
 
 @interface MNPSettingsViewController ()
@@ -156,7 +158,24 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
     [playersInfo addObject:player];
   }
   [_dataManager savePlayersInformation:(NSArray *)playersInfo];
-  [self.navigationController popToRootViewControllerAnimated:YES];
+
+  if (!self.openGameBoardAfterSaving) {
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                         bundle:nil];
+    MNPMenuViewController *menuViewController =
+    [storyboard instantiateViewControllerWithIdentifier:@"menuViewController"];
+    [self presentViewController:menuViewController animated:YES completion:nil];
+
+  } else {
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                         bundle:nil];
+    MNPGameViewController *gameViewController =
+    [storyboard instantiateViewControllerWithIdentifier:@"gameViewController"];
+    [self presentViewController:gameViewController animated:YES completion:nil];
+
+  }
 }
 
 @end

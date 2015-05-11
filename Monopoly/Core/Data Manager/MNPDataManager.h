@@ -26,5 +26,6 @@
 + (MNPDataManager *)sharedManager;
 - (void)preparePlayersInformation;
 - (void)savePlayersInformation:(NSArray *)playersInfo;
+- (BOOL)havePlayersInformation;
 
 @end

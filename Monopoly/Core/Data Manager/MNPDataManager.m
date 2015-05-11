@@ -53,5 +53,9 @@
   self.players = playersInfo;
 }
 
+- (BOOL)havePlayersInformation {
+    return self.players.count > 0 ? YES : NO;
+}
+
 
 @end

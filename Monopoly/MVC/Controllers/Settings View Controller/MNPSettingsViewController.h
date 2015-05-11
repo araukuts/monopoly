@@ -12,6 +12,8 @@
 
 @interface MNPSettingsViewController : UIViewController
 
+@property (assign, nonatomic) BOOL openGameBoardAfterSaving;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *countPlayers;
 
 @property (weak, nonatomic) IBOutlet UITextField *playerOneName;

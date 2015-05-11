@@ -9,13 +9,16 @@
 #import "MNPGameViewController.h"
 #import "MNPGameManager.h"
 #import "MNPPlayer.h"
+#import "MNPMenuViewController.h"
 
 @interface MNPGameViewController ()
 
 @property (strong, nonatomic) MNPGameManager *gameManager;
 
+
 @property (weak, nonatomic) IBOutlet UILabel *currentPlayerNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *currentPlayerCashLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *currentPlayerToken;
 
 @property (weak, nonatomic) IBOutlet UIImageView *boardImageView;
 
@@ -46,6 +49,7 @@
   MNPPlayer *firstPlayer = [self.gameManager getCurrentPlayerInfo];
   self.currentPlayerNameLbl.text = firstPlayer.playerName;
   self.currentPlayerCashLbl.text = [NSString stringWithFormat:@"%ld",(long)firstPlayer.playerCash];
+  self.currentPlayerToken.image = firstPlayer.playerToken.image;
 
   self.canPressEndTurn = YES;
 }
@@ -55,6 +59,16 @@
 
 
 #pragma mark - IBActions
+- (IBAction)exitButtonPressed:(id)sender {
+
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                       bundle:nil];
+  MNPMenuViewController *menuViewController =
+  [storyboard instantiateViewControllerWithIdentifier:@"menuViewController"];
+
+
+  [self presentViewController:menuViewController animated:YES completion:nil];
+}
 
 - (IBAction)rollButton:(id)sender {
 
@@ -66,6 +80,7 @@
 
       self.currentPlayerCashLbl.text = [NSString stringWithFormat:@"%ld",(long)nextPlayer.playerCash ];
       self.currentPlayerNameLbl.text = nextPlayer.playerName;
+      self.currentPlayerToken.image = nextPlayer.playerToken.image;
 
       [rollButton setTitle:@"ROLL!" forState:UIControlStateNormal];
       [rollButton setTitle:@"ROLL!" forState:UIControlStateSelected];
