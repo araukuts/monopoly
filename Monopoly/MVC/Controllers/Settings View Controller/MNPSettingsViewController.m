@@ -9,11 +9,12 @@
 #import "MNPSettingsViewController.h"
 #import "MNPDataManager.h"
 #import "MNPPlayer.h"
+#import "TPKeyboardAvoidingScrollView.h"
 
 
 @interface MNPSettingsViewController ()
 
-@property (strong,nonatomic) MNPDataManager *gameManager;
+@property (strong,nonatomic) MNPDataManager *dataManager;
 
 @end
 
@@ -32,15 +33,17 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
 - (void)viewDidLoad {
   self.title = @"Settings";
 
+
   [_countPlayers addTarget:self action:@selector(setUpPlayersName) forControlEvents:UIControlEventValueChanged];
   [self setUpRegistrationFieldWithMask:(1<<1)];
 
   UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
   [self.view addGestureRecognizer:tapRecognizer];
 
-  self.gameManager = [MNPDataManager sharedManager];
+  self.dataManager = [MNPDataManager sharedManager];
   self.navigationItem.hidesBackButton = YES;
 }
+
 
 
 #pragma mark - Private methods
@@ -152,7 +155,7 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
 
     [playersInfo addObject:player];
   }
-  [_gameManager savePlayersInformation:(NSArray *)playersInfo];
+  [_dataManager savePlayersInformation:(NSArray *)playersInfo];
   [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

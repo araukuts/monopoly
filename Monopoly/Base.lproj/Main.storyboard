@@ -144,15 +144,21 @@
                                     <action selector="rollButton:" destination="9JV-ZG-l6Q" eventType="touchUpInside" id="JzU-Uj-eDX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lv8-a1-lKO">
-                                <rect key="frame" x="363" y="86" width="0.0" height="0.0"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gp-JD-dXE">
+                                <rect key="frame" x="695" y="157" width="50" height="50"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlayerName LBL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8P-4P-b4w">
+                                <rect key="frame" x="16" y="86" width="129" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gp-JD-dXE">
-                                <rect key="frame" x="695" y="157" width="50" height="50"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player Cash = " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QD0-eC-r9l">
+                                <rect key="frame" x="293" y="86" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -164,8 +170,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Monopoly" id="eKL-gX-DsA"/>
                     <connections>
+                        <outlet property="actionButton" destination="nfX-vj-fWc" id="Dj5-w2-5bx"/>
                         <outlet property="boardImageView" destination="G4l-8J-qI2" id="wlA-Hw-QGC"/>
-                        <outlet property="currentPlayerLbl" destination="Lv8-a1-lKO" id="gCC-e9-MZi"/>
+                        <outlet property="currentPlayerCashLbl" destination="QD0-eC-r9l" id="vA0-eZ-O4n"/>
+                        <outlet property="currentPlayerNameLbl" destination="g8P-4P-b4w" id="YGr-Mg-61C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u26-uj-o0v" userLabel="First Responder" sceneMemberID="firstResponder"/>

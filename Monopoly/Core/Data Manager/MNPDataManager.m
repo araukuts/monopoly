@@ -51,7 +51,6 @@
 
 - (void)savePlayersInformation:(NSArray *)playersInfo {
   self.players = playersInfo;
-
 }
 
 

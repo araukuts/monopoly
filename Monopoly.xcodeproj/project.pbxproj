@@ -28,6 +28,10 @@
 		8143669D1AEEEA8300BFD388 /* MNPDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143669B1AEEEA8300BFD388 /* MNPDataManager.m */; };
 		814366A01AEEEA9800BFD388 /* MNPGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143669F1AEEEA9800BFD388 /* MNPGameManager.m */; };
 		814366A41AEEEBC700BFD388 /* MNPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814366A31AEEEBC700BFD388 /* MNPGameViewController.m */; };
+		814F4C691AFE9F0D00951EA7 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814F4C621AFE9F0D00951EA7 /* TPKeyboardAvoidingCollectionView.m */; };
+		814F4C6A1AFE9F0D00951EA7 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814F4C641AFE9F0D00951EA7 /* TPKeyboardAvoidingScrollView.m */; };
+		814F4C6B1AFE9F0D00951EA7 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814F4C661AFE9F0D00951EA7 /* TPKeyboardAvoidingTableView.m */; };
+		814F4C6C1AFE9F0D00951EA7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 814F4C681AFE9F0D00951EA7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		817072ED1AE6D083007AA440 /* MNPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 817072EC1AE6D083007AA440 /* MNPPlayer.m */; };
 		817072EF1AE6DF40007AA440 /* monopolyBoard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 817072EE1AE6DF40007AA440 /* monopolyBoard.jpg */; };
 		817072F31AE6E475007AA440 /* MNPDice.m in Sources */ = {isa = PBXBuildFile; fileRef = 817072F21AE6E475007AA440 /* MNPDice.m */; };
@@ -73,7 +77,7 @@
 		8101FC831AE50EF1003B9F16 /* MNPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPMenuViewController.h; sourceTree = "<group>"; };
 		8101FC841AE50EF1003B9F16 /* MNPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNPMenuViewController.m; sourceTree = "<group>"; };
 		8101FC871AE51913003B9F16 /* MNPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPSettingsViewController.h; sourceTree = "<group>"; };
-		8101FC881AE51913003B9F16 /* MNPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNPSettingsViewController.m; sourceTree = "<group>"; };
+		8101FC881AE51913003B9F16 /* MNPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = MNPSettingsViewController.m; sourceTree = "<group>"; tabWidth = 2; };
 		8101FC8B1AE519DB003B9F16 /* MNPAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPAboutUsViewController.h; sourceTree = "<group>"; };
 		8101FC8C1AE519DB003B9F16 /* MNPAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNPAboutUsViewController.m; sourceTree = "<group>"; };
 		8143669A1AEEEA8300BFD388 /* MNPDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPDataManager.h; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 		8143669F1AEEEA9800BFD388 /* MNPGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = MNPGameManager.m; sourceTree = "<group>"; tabWidth = 2; };
 		814366A21AEEEBC700BFD388 /* MNPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPGameViewController.h; sourceTree = "<group>"; };
 		814366A31AEEEBC700BFD388 /* MNPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = MNPGameViewController.m; sourceTree = "<group>"; tabWidth = 2; };
+		814F4C611AFE9F0D00951EA7 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		814F4C621AFE9F0D00951EA7 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		814F4C631AFE9F0D00951EA7 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		814F4C641AFE9F0D00951EA7 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		814F4C651AFE9F0D00951EA7 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		814F4C661AFE9F0D00951EA7 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		814F4C671AFE9F0D00951EA7 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		814F4C681AFE9F0D00951EA7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		817072EB1AE6D083007AA440 /* MNPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPPlayer.h; sourceTree = "<group>"; };
 		817072EC1AE6D083007AA440 /* MNPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = MNPPlayer.m; sourceTree = "<group>"; tabWidth = 2; };
 		817072EE1AE6DF40007AA440 /* monopolyBoard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monopolyBoard.jpg; sourceTree = "<group>"; };
@@ -295,6 +307,7 @@
 		8101FC771AE50C5F003B9F16 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				814F4C601AFE9F0D00951EA7 /* TPKeyboardAvoiding */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -351,6 +364,21 @@
 				814366A31AEEEBC700BFD388 /* MNPGameViewController.m */,
 			);
 			path = "Game View Controller";
+			sourceTree = "<group>";
+		};
+		814F4C601AFE9F0D00951EA7 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				814F4C611AFE9F0D00951EA7 /* TPKeyboardAvoidingCollectionView.h */,
+				814F4C621AFE9F0D00951EA7 /* TPKeyboardAvoidingCollectionView.m */,
+				814F4C631AFE9F0D00951EA7 /* TPKeyboardAvoidingScrollView.h */,
+				814F4C641AFE9F0D00951EA7 /* TPKeyboardAvoidingScrollView.m */,
+				814F4C651AFE9F0D00951EA7 /* TPKeyboardAvoidingTableView.h */,
+				814F4C661AFE9F0D00951EA7 /* TPKeyboardAvoidingTableView.m */,
+				814F4C671AFE9F0D00951EA7 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				814F4C681AFE9F0D00951EA7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		817072EA1AE6D068007AA440 /* Player */ = {
@@ -495,16 +523,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814F4C6A1AFE9F0D00951EA7 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				814366A01AEEEA9800BFD388 /* MNPGameManager.m in Sources */,
 				8101FC781AE50C5F003B9F16 /* AppDelegate.m in Sources */,
 				817072ED1AE6D083007AA440 /* MNPPlayer.m in Sources */,
+				814F4C6C1AFE9F0D00951EA7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				819A79A81AF029C50092594B /* MNPConstants.m in Sources */,
 				8101FC891AE51913003B9F16 /* MNPSettingsViewController.m in Sources */,
 				817072F31AE6E475007AA440 /* MNPDice.m in Sources */,
 				8101FC8D1AE519DB003B9F16 /* MNPAboutUsViewController.m in Sources */,
 				8101FC851AE50EF1003B9F16 /* MNPMenuViewController.m in Sources */,
+				814F4C6B1AFE9F0D00951EA7 /* TPKeyboardAvoidingTableView.m in Sources */,
 				8101FC371AE509DF003B9F16 /* main.m in Sources */,
 				814366A41AEEEBC700BFD388 /* MNPGameViewController.m in Sources */,
+				814F4C691AFE9F0D00951EA7 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				8143669D1AEEEA8300BFD388 /* MNPDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,6 +18,8 @@
 @required
 
 - (void)gameManager:(MNPGameManager *)gameManager didPerformActionWithPlayer:(MNPPlayer *)player;
+- (void)gameManager:(MNPGameManager *)gameManager didPreparedGameWithPlayers:(NSArray *)players;
+
 
 @end
 

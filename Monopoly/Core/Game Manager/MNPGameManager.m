@@ -39,6 +39,7 @@
 
   self = [super init];
   if (self) {
+    
     self.currentPlayerIndex = 0;
     self.dataManager = [MNPDataManager sharedManager];
     self.dataManager.delegate = self;
@@ -49,6 +50,11 @@
 
 
 #pragma mark - Public methods
+
+
+- (MNPPlayer *)getCurrentPlayerInfo {
+  return self.players[self.currentPlayerIndex];
+}
 
 - (void)performCurrentPlayerAction {
 
@@ -69,8 +75,9 @@
   if ([_delegate respondsToSelector:@selector(gameManager:didPerformActionWithPlayer:)]) {
     [_delegate gameManager:self didPerformActionWithPlayer:currentPlayer];
   }
+  ++self.currentPlayerIndex;
+  self.currentPlayerIndex %= self.players.count;
 }
-
 
 
 #pragma mark - MNPDataManager delegate methods
