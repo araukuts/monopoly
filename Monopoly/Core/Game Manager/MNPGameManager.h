@@ -17,9 +17,25 @@
 
 @required
 
-- (void)gameManager:(MNPGameManager *)gameManager didPerformActionWithPlayer:(MNPPlayer *)player;
+- (void)gameManager:(MNPGameManager *)gameManager
+    didPerformActionWithPlayer:(MNPPlayer *)player
+     withNumberDice:(NSInteger)rollDice;
 - (void)gameManager:(MNPGameManager *)gameManager didPreparedGameWithPlayers:(NSArray *)players;
 
+@optional
+
+// Actions with specific types of space
+
+// Go through space "GO"
+- (void)gameManager:(MNPGameManager *)gameManager
+    didPerformTakeSalary:(NSNumber *)salary
+        forCurrentPlayer:(MNPPlayer *)player;
+
+
+// Pay tax
+- (void)gameManager:(MNPGameManager *)gameManager
+   didPerformPayTax:(NSNumber *)tax
+   forCurrentPlayer:(MNPPlayer *)player;
 
 @end
 
@@ -38,7 +54,7 @@
 
 // Performing player action
 
-- (void)performCurrentPlayerAction;
+- (void)performCurrentPlayerActionWithDice:(NSNumber *)dice;
 
 
 @end

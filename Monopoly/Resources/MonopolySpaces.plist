@@ -20,7 +20,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>color</key>
-		<string>purpleColor</string>
+		<string>brownColor</string>
 		<key>related</key>
 		<array>
 			<integer>3</integer>
@@ -41,7 +41,7 @@
 		<key>cost</key>
 		<integer>60</integer>
 		<key>title</key>
-		<string>Mediterranean Avenue</string>
+		<string>Old Kent Road</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -65,7 +65,7 @@
 			<integer>1</integer>
 		</array>
 		<key>color</key>
-		<string>purpleColor</string>
+		<string>brownColor</string>
 		<key>housecost</key>
 		<integer>50</integer>
 		<key>rent</key>
@@ -80,9 +80,11 @@
 		<key>cost</key>
 		<integer>60</integer>
 		<key>title</key>
-		<string>Baltic Avenue</string>
+		<string>Whitechapel Road</string>
 	</dict>
 	<dict>
+		<key>cost</key>
+		<integer>200</integer>
 		<key>x</key>
 		<string>429</string>
 		<key>y</key>
@@ -117,7 +119,7 @@
 		<key>cost</key>
 		<integer>200</integer>
 		<key>title</key>
-		<string>Reading Railroad</string>
+		<string>Kings Cross Station</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -147,7 +149,7 @@
 		<key>cost</key>
 		<integer>100</integer>
 		<key>title</key>
-		<string>Oriental Avenue</string>
+		<string>The Angel Islingston</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -187,7 +189,7 @@
 		<key>cost</key>
 		<integer>100</integer>
 		<key>title</key>
-		<string>Vermont Avenue</string>
+		<string>Euston Road</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -217,7 +219,7 @@
 		<key>cost</key>
 		<integer>120</integer>
 		<key>title</key>
-		<string>Connecticut Avenue</string>
+		<string>Pentonville Road</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -257,7 +259,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>St. Charles Place</string>
+		<string>Pall Mall</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -303,7 +305,7 @@
 		<key>cost</key>
 		<integer>140</integer>
 		<key>title</key>
-		<string>States Avenue</string>
+		<string>White Hall</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -333,7 +335,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Virginia Avenue</string>
+		<string>Northhummeld Avenue</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -358,7 +360,7 @@
 		<key>cost</key>
 		<integer>200</integer>
 		<key>title</key>
-		<string>Pennsylvania Railroad</string>
+		<string>Marylibone Station</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -388,7 +390,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>St. James Place</string>
+		<string>Bow Street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -428,7 +430,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Tennessee Avenue</string>
+		<string>Marlborough street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -458,7 +460,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>New York Avenue</string>
+		<string>Vine Street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -498,7 +500,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Kentucky Avenue</string>
+		<string>Strand</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -538,7 +540,7 @@
 		<key>cost</key>
 		<integer>220</integer>
 		<key>title</key>
-		<string>Indiana Avenue</string>
+		<string>Pleet Street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -568,7 +570,7 @@
 		<key>cost</key>
 		<integer>240</integer>
 		<key>title</key>
-		<string>Illinois Avenue</string>
+		<string>Trafalgar Square</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -593,7 +595,7 @@
 		<key>cost</key>
 		<integer>200</integer>
 		<key>title</key>
-		<string>B&amp;O Railroad</string>
+		<string>Fenchurch St.Station</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -623,7 +625,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Atlantic Avenue</string>
+		<string>Lecester Square</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -653,7 +655,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Ventnor Avenue</string>
+		<string>Coventry Street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -699,7 +701,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Marvin Gardens</string>
+		<string>Piccadily</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -739,7 +741,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Pacific Avenue</string>
+		<string>Regent Street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -769,7 +771,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>North Carolina Avenue</string>
+		<string>Oxford Street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -809,7 +811,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Pennsylvania Avenue</string>
+		<string>Bond Street</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -834,7 +836,7 @@
 		<key>cost</key>
 		<integer>200</integer>
 		<key>title</key>
-		<string>Short Line</string>
+		<string>Liverpool Station</string>
 	</dict>
 	<dict>
 		<key>x</key>
@@ -873,15 +875,17 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Park Place</string>
+		<string>Park Lane</string>
 	</dict>
 	<dict>
+		<key>cost</key>
+		<integer>100</integer>
 		<key>x</key>
 		<string>705</string>
 		<key>y</key>
 		<string>696</string>
 		<key>title</key>
-		<string>Luxury Tax</string>
+		<string>Super Tax</string>
 		<key>spaceType</key>
 		<integer>4</integer>
 	</dict>
@@ -912,7 +916,7 @@
 		<key>spaceType</key>
 		<integer>3</integer>
 		<key>title</key>
-		<string>Boardwalk</string>
+		<string>Mayfair</string>
 	</dict>
 </array>
 </plist>
