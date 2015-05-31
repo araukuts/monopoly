@@ -24,7 +24,11 @@
 - (void)gameManager:(MNPGameManager *)gameManager
 didPerformActionWithPlayerInJail:(MNPPlayer *)player;
 
-- (void)gameManager:(MNPGameManager *)gameManager didPreparedGameWithPlayers:(NSArray *)players;
+- (void)gameManager:(MNPGameManager *)gameManager
+didPerformActionWithPlayerInFreeParking:(MNPPlayer *)player;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+didPreparedGameWithPlayers:(NSArray *)players;
 
 @optional
 
@@ -41,6 +45,11 @@ didPerformActionWithPlayerInJail:(MNPPlayer *)player;
    didPerformPayTax:(NSNumber *)tax
    forCurrentPlayer:(MNPPlayer *)player;
 
+
+// Go to free parking
+
+- (void)gameManager:(MNPGameManager *)gameManager
+    didPerfromGoToFreeParkingForCurrentPlayer:(MNPPlayer *)player;
 
 // Go to jail
 - (void)gameManager:(MNPGameManager *)gameManager
@@ -69,5 +78,6 @@ didPerformActionWithPlayerInJail:(MNPPlayer *)player;
 
 - (void)performCurrentPlayerActionWithDice:(NSNumber *)dice;
 - (void)performCurrentPlayerActionInJail;
+- (void)performCurrentPlayerActionInFreeParking;
 
 @end

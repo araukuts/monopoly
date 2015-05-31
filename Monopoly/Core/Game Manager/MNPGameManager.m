@@ -139,6 +139,12 @@
           [self.delegate gameManager:self didPerformGoToJailForCurrentPlayer:currentPlayer];
         }
       }
+  } else if ([currentSpace[@"spaceType"] isEqualToValue:@(0)]) {
+    if ([currentSpace[@"title"] isEqualToString:@"Free Parking"]) {
+      if ([self.delegate respondsToSelector:@selector(gameManager:didPerfromGoToFreeParkingForCurrentPlayer:)]) {
+        [self.delegate gameManager:self didPerfromGoToFreeParkingForCurrentPlayer:currentPlayer];
+      }
+    }
   }
 
   if ([_delegate respondsToSelector:@selector(gameManager:didPerformActionWithPlayer:withNumberDice:)]) {
@@ -148,6 +154,16 @@
   self.currentPlayerIndex %= self.players.count;
 }
 
+
+- (void)performCurrentPlayerActionInFreeParking {
+
+  if ([_delegate respondsToSelector:@selector(gameManager:didPerformActionWithPlayerInFreeParking:)]) {
+    [self.delegate gameManager:self didPerformActionWithPlayerInFreeParking:_players[_currentPlayerIndex]];
+  }
+
+  ++self.currentPlayerIndex;
+  self.currentPlayerIndex %= self.players.count;
+}
 
 - (void)performCurrentPlayerActionInJail {
 

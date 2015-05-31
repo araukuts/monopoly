@@ -36,6 +36,9 @@ const int dx = 200, dy = 200;
 
 @property (assign, nonatomic) CAAnimationGroup *movingAnimation;
 
+@property (assign, nonatomic) NSInteger firstRoll;
+@property (assign, nonatomic) NSInteger secondRoll;
+
 @end
 
 
@@ -292,6 +295,11 @@ const int dx = 200, dy = 200;
 
 }
 
+- (void)gameManager:(MNPGameManager *)gameManager didPerfromGoToFreeParkingForCurrentPlayer:(MNPPlayer *)player {
+
+  self.currentPlayer = player;
+  [self createAlertViewGoToFreeParkingForPlayer:player];
+}
 
 - (void)gameManager:(MNPGameManager *)gameManager didPerformPayTax:(NSNumber *)tax forCurrentPlayer:(MNPPlayer *)player {
 
@@ -336,6 +344,17 @@ const int dx = 200, dy = 200;
 }
 
 #pragma mark - AlertView
+
+- (void)createAlertViewGoToFreeParkingForPlayer:(MNPPlayer *)player {
+
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Free Parking"
+                                                      message:[NSString stringWithFormat:@"Do you want to stay in free parking?"]
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:@"Accept",@"Deny",nil];
+
+  [alertView show];
+}
 
 - (void)createAlertViewGoToJailForPlayer:(MNPPlayer *)player{
 
@@ -403,6 +422,16 @@ const int dx = 200, dy = 200;
   [alertView show];
 }
 
+- (void)createAlertViewForRequestStayInParking {
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Free Parking"
+                                                      message:[NSString stringWithFormat:@"Do you want to stay in the parking?"]
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:@"Yes",@"No",nil];
+
+  [alertView show];
+}
+
 #pragma mark - UIAlertViewDelegate methods
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -412,6 +441,16 @@ const int dx = 200, dy = 200;
     self.currentPlayer.playerGetOutOfJailFree = NO;
   } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Go to jail"]) {
     [self movePlayerToJail:self.currentPlayer];
+  } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Accept"]) {
+      self.currentPlayer.playerInFreeParking = YES;
+  } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"No"]) {
+
+    self.currentPlayer.playerInFreeParking = NO;
+    [_gameManager performCurrentPlayerActionWithDice:@(self.firstRoll + self.secondRoll)];
+  } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
+
+    [_gameManager performCurrentPlayerActionInFreeParking];
+    self.canPressEndTurn = YES;
   }
 }
 
@@ -458,7 +497,9 @@ const int dx = 200, dy = 200;
         case 5:dong2.image = [UIImage imageNamed:@"5@2x.png"];break;
         case 6:dong2.image = [UIImage imageNamed:@"6@2x.png"];break;
       }
-      NSNumber *rollDice = @(7);
+      NSNumber *rollDice = @(20);
+      self.firstRoll = result1;
+      self.secondRoll = result2;
       --self.someCount;
       if (_someCount != 0) {
         return;
@@ -479,7 +520,12 @@ const int dx = 200, dy = 200;
         [_gameManager performCurrentPlayerActionInJail];
         self.canPressEndTurn = YES;
         self.currentPlayer = [_gameManager getCurrentPlayerInfo];
-      } else {
+      } else if (self.currentPlayer.playerInFreeParking) {
+
+        [self createAlertViewForRequestStayInParking];
+        return;
+      }
+      else {
 
         [_gameManager performCurrentPlayerActionWithDice:rollDice];
       }
