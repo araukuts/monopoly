@@ -10,7 +10,7 @@
 #import "MNPDataManager.h"
 #import "MNPGameManager.h"
 
-@interface MNPGameViewController : UIViewController <MNPGameManagerDelegate, UIAlertViewDelegate> {
+@interface MNPGameViewController : UIViewController <MNPGameManagerDelegate, UIAlertViewDelegate, UIActionSheetDelegate> {
     UIImageView *dice1,*dice2;
     UIImageView *dong1,*dong2;
 }

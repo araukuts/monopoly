@@ -20,6 +20,10 @@
 - (void)gameManager:(MNPGameManager *)gameManager
     didPerformActionWithPlayer:(MNPPlayer *)player
      withNumberDice:(NSInteger)rollDice;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+didPerformActionWithPlayerInJail:(MNPPlayer *)player;
+
 - (void)gameManager:(MNPGameManager *)gameManager didPreparedGameWithPlayers:(NSArray *)players;
 
 @optional
@@ -36,6 +40,15 @@
 - (void)gameManager:(MNPGameManager *)gameManager
    didPerformPayTax:(NSNumber *)tax
    forCurrentPlayer:(MNPPlayer *)player;
+
+
+// Go to jail
+- (void)gameManager:(MNPGameManager *)gameManager
+    didPerformGoToJailForCurrentPlayer:(MNPPlayer *)player;
+
+// Get free key from jail
+- (void)gameManager:(MNPGameManager *)gameManager
+    didPerformGetFreeKeyFromJailForCurrentPlayer:(MNPPlayer *)player;
 
 @end
 
@@ -55,6 +68,6 @@
 // Performing player action
 
 - (void)performCurrentPlayerActionWithDice:(NSNumber *)dice;
-
+- (void)performCurrentPlayerActionInJail;
 
 @end

@@ -22,6 +22,9 @@
 @property (assign, nonatomic) NSInteger playerCash;
 @property (assign, nonatomic) BOOL playerGetOutOfJailFree;
 
+@property (assign, nonatomic) BOOL playerInJail;
+@property (assign, nonatomic) NSInteger countOfFreeRolling;
+
 
 #pragma mark - Public Methods
 
