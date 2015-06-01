@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aKA-di-z5V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aKA-di-z5V">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -194,7 +194,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u26-uj-o0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011" y="-816"/>
+            <point key="canvasLocation" x="1679" y="-1100"/>
+        </scene>
+        <!--Summary View Controller-->
+        <scene sceneID="yre-oV-H5P">
+            <objects>
+                <viewController storyboardIdentifier="summaryViewController" id="53V-dT-hre" customClass="MNPSummaryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ikM-Eq-Rec"/>
+                        <viewControllerLayoutGuide type="bottom" id="TVv-ZO-AvY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ark-RR-7Oo">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="congrats.png" translatesAutoresizingMaskIntoConstraints="NO" id="uwc-xr-It0">
+                                <rect key="frame" x="188" y="78" width="393" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Winner is" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKo-1q-EqJ">
+                                <rect key="frame" x="90" y="402" width="209" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq6-Uc-Eio">
+                                <rect key="frame" x="347" y="340" width="405" height="219"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="winnerName" destination="Yq6-Uc-Eio" id="YaS-eh-k63"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aB-YD-53I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2607" y="-1100"/>
         </scene>
         <!--Settings-->
         <scene sceneID="69U-hM-ejK">
@@ -396,6 +435,7 @@
         <image name="circle_green.png" width="128" height="128"/>
         <image name="circle_orange.png" width="128" height="128"/>
         <image name="circle_yellow.png" width="128" height="128"/>
+        <image name="congrats.png" width="514" height="297"/>
         <image name="monopolyBoard.jpg" width="702" height="700"/>
     </resources>
 </document>

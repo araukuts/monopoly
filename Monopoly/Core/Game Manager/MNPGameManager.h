@@ -10,12 +10,12 @@
 #import "MNPDataManager.h"
 #import "MNPPlayer.h"
 
-@class MNPGameManager;
+@class MNPGameManager, MNPSpace;
 
 
 @protocol MNPGameManagerDelegate <NSObject>
 
-@required
+@optional
 
 - (void)gameManager:(MNPGameManager *)gameManager
     didPerformActionWithPlayer:(MNPPlayer *)player
@@ -29,8 +29,6 @@ didPerformActionWithPlayerInFreeParking:(MNPPlayer *)player;
 
 - (void)gameManager:(MNPGameManager *)gameManager
 didPreparedGameWithPlayers:(NSArray *)players;
-
-@optional
 
 // Actions with specific types of space
 
@@ -59,6 +57,47 @@ didPreparedGameWithPlayers:(NSArray *)players;
 - (void)gameManager:(MNPGameManager *)gameManager
     didPerformGetFreeKeyFromJailForCurrentPlayer:(MNPPlayer *)player;
 
+// Stay in municipal Factory
+
+- (void)gameManager:(MNPGameManager *)gameManager
+      currentPlayer:(MNPPlayer *)player
+       mustPayMoney:(NSInteger )cost
+     toFactoryOwner:(MNPPlayer *)factoryOwner;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+        currentPlayer:(MNPPlayer *)player
+stayAtFreeMunicipalFactory:(MNPSpace *)space;
+
+
+// Stay at railroad
+
+- (void)gameManager:(MNPGameManager *)gameManager
+      currentPlayer:(MNPPlayer *)player
+       mustPayMoney:(NSInteger)cost
+    toRailroadOwner:(MNPPlayer *)railroadOwner;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+    currentPlayer:(MNPPlayer *)player
+ stayAtFreeRailroad:(MNPSpace *)space;
+
+
+//Successfull buying
+
+- (void)gameManager:(MNPGameManager *)gameManager
+currentPlayerSuccesfullyBuyFactory:(MNPPlayer *)player;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+currentPlayerSuccesfullyBuyRailroad:(MNPPlayer *)playr;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+currentPlayerSuccesfullyPaidRent:(MNPPlayer *)player;
+
+
+// Player deleted
+- (void)gameManager:(MNPGameManager *)gameManager
+currentPlayerKnockoutFromGame:(MNPPlayer *)player;
+
+
 @end
 
 
@@ -79,5 +118,20 @@ didPreparedGameWithPlayers:(NSArray *)players;
 - (void)performCurrentPlayerActionWithDice:(NSNumber *)dice;
 - (void)performCurrentPlayerActionInJail;
 - (void)performCurrentPlayerActionInFreeParking;
+
+- (void)player:(MNPPlayer *)player getSalaryAtTheRateOf:(NSInteger)cost;
+
+- (void)playerRescuedFromJailByFreeKey:(MNPPlayer *)player;
+- (void)player:(MNPPlayer *)player rescuedFromJailByMoney:(NSInteger)cost;
+
+- (void)player:(MNPPlayer *)player mustPaytaxAtTheRateOf:(NSInteger)tax;
+- (void)player:(MNPPlayer *)player mustPayRentToFactoryOwner:(MNPPlayer *)owner atTheRateOf:(NSInteger)rent;
+- (void)player:(MNPPlayer *)player mustPayRentToRailroadOwner:(MNPPlayer *)owner atTheRateOf:(NSInteger)rent;
+
+
+- (void)player:(MNPPlayer *)player buyFactoryAtSpace:(MNPSpace *)space;
+- (void)player:(MNPPlayer *)player buyRailroadAtSpace:(MNPSpace *)space;
+
+- (NSInteger)getNumberOfExistPlayers;
 
 @end

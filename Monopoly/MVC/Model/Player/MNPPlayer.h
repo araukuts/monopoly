@@ -27,6 +27,9 @@
 
 @property (assign, nonatomic) BOOL playerInFreeParking;
 
+@property (assign, nonatomic) NSInteger numberOfOwnRailroad;
+@property (assign, nonatomic) NSInteger numberOfOwnMunicipalFactory;
+
 
 #pragma mark - Public Methods
 
