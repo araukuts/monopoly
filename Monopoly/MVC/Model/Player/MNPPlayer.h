@@ -30,6 +30,10 @@
 @property (assign, nonatomic) NSInteger numberOfOwnRailroad;
 @property (assign, nonatomic) NSInteger numberOfOwnMunicipalFactory;
 
+@property (strong, nonatomic) NSMutableDictionary *countOfBuildingsByColor;
+
+@property (strong, nonatomic) NSString *houseImagePath;
+
 
 #pragma mark - Public Methods
 

@@ -39,6 +39,7 @@
   return sharedManager;
 }
 
+
 - (instancetype)init {
 
   self = [super init];
@@ -59,6 +60,7 @@
         currentSpace.cost = [spaceDict[@"cost"] integerValue];
         currentSpace.factoryName = spaceDict[@"title"];
         currentSpace.rent = spaceDict[@"rent"];
+        currentSpace.buildingColor = spaceDict[@"color"];
       }
       [self.monopolySpaces addObject:currentSpace];
     }
@@ -66,9 +68,30 @@
   return self;
 }
 
+- (void)updateGameManager {
+  
+  self.currentPlayerIndex = 0;
+  self.dataManager = [MNPDataManager sharedManager];
+  self.dataManager.delegate = self;
+  [self.dataManager preparePlayersInformation];
+
+  NSString *path = [[NSBundle mainBundle] pathForResource: @"MonopolySpaces" ofType: @"plist"];
+  self.spaceList = [[NSMutableArray alloc] initWithContentsOfFile:path];
+  self.monopolySpaces = [[NSMutableArray alloc] init];
+  for (NSDictionary *spaceDict in self.spaceList) {
+    MNPSpace *currentSpace = [[MNPSpace alloc] init];
+    if (spaceDict[@"cost"]) {
+      currentSpace.owner = nil;
+      currentSpace.cost = [spaceDict[@"cost"] integerValue];
+      currentSpace.factoryName = spaceDict[@"title"];
+      currentSpace.rent = spaceDict[@"rent"];
+      currentSpace.buildingColor = spaceDict[@"color"];
+    }
+    [self.monopolySpaces addObject:currentSpace];
+  }
+}
 
 #pragma mark - Public methods
-
 
 - (MNPPlayer *)getCurrentPlayerInfo {
   return self.players[self.currentPlayerIndex];
@@ -180,16 +203,16 @@
 
     // check if factory have owner
     MNPSpace *monopolySpace = _monopolySpaces[nextSpace];
-    if (monopolySpace.owner) {
+    if (monopolySpace.owner && currentPlayer != monopolySpace.owner) {
 
       if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayer:mustPayMoney:toFactoryOwner:)]) {
         NSInteger rentCost = 10;
         if (currentPlayer.numberOfOwnMunicipalFactory == 1)
-          rentCost *=4;
+          rentCost *= 4;
         else rentCost *= 10;
         [self.delegate gameManager:self currentPlayer:currentPlayer mustPayMoney:rentCost toFactoryOwner:monopolySpace.owner];
       }
-    } else {
+    } else if (!monopolySpace.owner) {
       // send offer to current player
       if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayer:stayAtFreeMunicipalFactory:)]) {
         [self.delegate gameManager:self currentPlayer:currentPlayer stayAtFreeMunicipalFactory:monopolySpace];
@@ -202,20 +225,47 @@
   else if ([currentSpace[@"spaceType"] isEqualToValue:@(1)]) { // Railroad
     MNPSpace *monopolySpace = _monopolySpaces[nextSpace];
 
-    if (monopolySpace.owner) {
+    if (monopolySpace.owner && currentPlayer != monopolySpace.owner) {
       if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayer:mustPayMoney:toRailroadOwner:)]) {
 
         MNPPlayer *owner = monopolySpace.owner;
         NSInteger rentCost = [monopolySpace.rent[owner.numberOfOwnRailroad - 1] integerValue];
         [self.delegate gameManager:self currentPlayer:currentPlayer mustPayMoney:rentCost toRailroadOwner:owner];
       }
-    } else {
+    } else if (!monopolySpace.owner){
 
       if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayer:stayAtFreeRailroad:)]) {
         [self.delegate gameManager:self currentPlayer:currentPlayer stayAtFreeRailroad:monopolySpace];
       }
     }
     
+  }
+
+// Space type 3
+  else if ([currentSpace[@"spaceType"] isEqualToValue:@(3)]) { // Buildings
+
+    MNPSpace *monopolySpace = _monopolySpaces[nextSpace];
+    if (monopolySpace.owner && currentPlayer != monopolySpace.owner) {
+      if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayer:mustPayMoney:toBuildingOwner:)]) {
+
+        NSString *buildingColor = _spaceList[nextSpace][@"color"];
+        MNPPlayer *owner = monopolySpace.owner;
+        NSInteger count = [[owner.countOfBuildingsByColor objectForKey:buildingColor] integerValue];
+        NSInteger rentCost = [monopolySpace.rent[count - 1] integerValue];
+        rentCost *= monopolySpace.buildingLevel;
+
+        [self.delegate gameManager:self currentPlayer:currentPlayer mustPayMoney:rentCost toBuildingOwner:owner];
+      }
+    } else if (!monopolySpace.owner) { // Free building
+      if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayer:stayAtFreeBuilding:)]) {
+        [self.delegate gameManager:self currentPlayer:currentPlayer stayAtFreeBuilding:monopolySpace];
+      }
+    } else if (monopolySpace.owner == currentPlayer) { // Try to update building
+      if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayer:stayAtOwnBuilding:)]) {
+
+        [self.delegate gameManager:self currentPlayer:currentPlayer stayAtOwnBuilding:monopolySpace];
+      }
+    }
   }
 
 
@@ -301,6 +351,16 @@
   }
 }
 
+- (void)player:(MNPPlayer *)player mustPayRentToBuildingOwner:(MNPPlayer *)owner atTheRateOf:(NSInteger)rent {
+  player.playerCash -= rent;
+  owner.playerCash += rent;
+  if (![self validatePlayerCashForGame:player]){
+  }
+  if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayerSuccesfullyPaidRent:)]) {
+    [self.delegate gameManager:self currentPlayerSuccesfullyPaidRent:player];
+  }
+}
+
 - (void)player:(MNPPlayer *)player buyFactoryAtSpace:(MNPSpace *)space {
 
   space.owner = player;
@@ -321,6 +381,38 @@
   }
 }
 
+- (void)player:(MNPPlayer *)player buyBuildingAtSpace:(MNPSpace *)space {
+
+  space.owner = player;
+  NSMutableDictionary *dict = player.countOfBuildingsByColor;
+  if (dict) {
+    int count = [[dict objectForKey:space.buildingColor] integerValue];
+    ++count;
+    [dict setObject:[NSNumber numberWithInt:count] forKey:space.buildingColor];
+  } else {
+    dict = [[NSMutableDictionary alloc] init];
+    [dict setObject:@(1) forKey:space.buildingColor];
+  }
+  player.countOfBuildingsByColor = dict;
+  space.buildingLevel++;
+
+  player.playerCash -= space.cost;
+  if ([self.delegate respondsToSelector:@selector(gameManager:currentPlayerSuccesfullyBuyBuilding:)]) {
+    [self.delegate gameManager:self currentPlayerSuccesfullyBuyBuilding:player];
+  }
+}
+
+
+- (void)player:(MNPPlayer *)player updateBuildingAtSpace:(MNPSpace *)space {
+
+  space.buildingLevel++;
+  player.playerCash -= space.cost;
+
+  if ([self.delegate respondsToSelector:@selector(gameManager:currentPLayerSuccesfullyUpdateBuilding:)]) {
+    [self.delegate gameManager:self currentPLayerSuccesfullyUpdateBuilding:player];
+  }
+}
+
 #pragma mark - Private methods
 
 - (BOOL)validatePlayerCashForGame:(MNPPlayer *)player {
@@ -332,7 +424,16 @@
       [self.delegate gameManager:self currentPlayerKnockoutFromGame:player];
     }
     --_currentPlayerIndex;
+    for (MNPSpace *space in self.monopolySpaces) {
+      if (space.owner == player) {
+
+        space.owner = nil;
+        space.buildingLevel = 0;
+      }
+    }
     [self.players removeObject:player];
+    if (self.currentPlayerIndex < 0)
+      self.currentPlayerIndex = self.players.count - 1;
     return NO;
   }
 }
@@ -342,6 +443,19 @@
 - (void)dataManager:(MNPDataManager *)dataManager didRecievePlayersInformation:(NSArray *)players {
   
   self.players = [NSMutableArray arrayWithArray:players];
+  for (NSInteger index = 0; index < players.count; ++index) {
+
+    MNPPlayer *player = players[index];
+    if (index == 0) {
+      player.houseImagePath = @"home_yellow.png";
+    } else if (index == 1) {
+      player.houseImagePath = @"home_orange.png";
+    } else if (index == 2) {
+      player.houseImagePath = @"home_green.png";
+    } else if (index == 3){
+      player.houseImagePath = @"home_blue.png";
+    }
+  }
 //  MNPPlayer *playerTwo = self.players[1];
 //  playerTwo.playerCash = 1000000;
 }

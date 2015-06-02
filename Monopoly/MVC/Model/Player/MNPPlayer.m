@@ -21,6 +21,7 @@
     self.playerGetOutOfJailFree = NO;
     self.playerCash = 1500;
     self.currentLocation = CGPointMake(703, 829);
+    self.houseImagePath = [[NSString alloc] init];
   }
   return self;
 }

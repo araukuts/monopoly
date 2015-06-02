@@ -16,4 +16,7 @@
 @property (strong, nonatomic) NSString *factoryName;
 @property (strong, nonatomic) NSArray *rent;
 
+@property (assign, nonatomic) NSInteger buildingLevel;
+@property (strong, nonatomic) NSString *buildingColor;
+
 @end

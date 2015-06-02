@@ -165,7 +165,9 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
                                                          bundle:nil];
     MNPMenuViewController *menuViewController =
     [storyboard instantiateViewControllerWithIdentifier:@"menuViewController"];
-    [self presentViewController:menuViewController animated:YES completion:nil];
+    [self presentViewController:menuViewController animated:YES completion:^{
+      //[self dismissViewControllerAnimated:NO completion:nil];
+    }];
 
   } else {
 
@@ -173,8 +175,9 @@ typedef NS_ENUM(NSInteger, MNPCountPlayers) {
                                                          bundle:nil];
     MNPGameViewController *gameViewController =
     [storyboard instantiateViewControllerWithIdentifier:@"gameViewController"];
-    [self presentViewController:gameViewController animated:YES completion:nil];
-
+    [self presentViewController:gameViewController animated:YES completion:^{
+    //  [self dismissViewControllerAnimated:NO completion:nil];
+    }];
   }
 }
 

@@ -53,6 +53,10 @@
 		81B2383F1B1BACF300025429 /* MNPSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B2383E1B1BACF300025429 /* MNPSpace.m */; };
 		81B238431B1CDCD200025429 /* MNPSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B238421B1CDCD200025429 /* MNPSummaryViewController.m */; };
 		81B238451B1CE06400025429 /* congrats.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B238441B1CE06400025429 /* congrats.png */; };
+		81B238851B1E40FE00025429 /* home_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B238811B1E40FE00025429 /* home_blue.png */; };
+		81B238861B1E40FE00025429 /* home_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B238821B1E40FE00025429 /* home_green.png */; };
+		81B238871B1E40FE00025429 /* home_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B238831B1E40FE00025429 /* home_orange.png */; };
+		81B238881B1E40FE00025429 /* home_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B238841B1E40FE00025429 /* home_yellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +136,10 @@
 		81B238411B1CDCD200025429 /* MNPSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPSummaryViewController.h; sourceTree = "<group>"; };
 		81B238421B1CDCD200025429 /* MNPSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNPSummaryViewController.m; sourceTree = "<group>"; };
 		81B238441B1CE06400025429 /* congrats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = congrats.png; sourceTree = "<group>"; };
+		81B238811B1E40FE00025429 /* home_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_blue.png; sourceTree = "<group>"; };
+		81B238821B1E40FE00025429 /* home_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_green.png; sourceTree = "<group>"; };
+		81B238831B1E40FE00025429 /* home_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_orange.png; sourceTree = "<group>"; };
+		81B238841B1E40FE00025429 /* home_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_yellow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +289,10 @@
 		8101FC691AE50C5F003B9F16 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				81B238811B1E40FE00025429 /* home_blue.png */,
+				81B238821B1E40FE00025429 /* home_green.png */,
+				81B238831B1E40FE00025429 /* home_orange.png */,
+				81B238841B1E40FE00025429 /* home_yellow.png */,
 				81B238441B1CE06400025429 /* congrats.png */,
 				8105CF4D1B1A054E00497C34 /* 1@2x.png */,
 				8105CF4E1B1A054E00497C34 /* 2@2x.png */,
@@ -547,10 +559,14 @@
 				81B238451B1CE06400025429 /* congrats.png in Resources */,
 				8101FC7D1AE50C5F003B9F16 /* car.png in Resources */,
 				8101FC7B1AE50C5F003B9F16 /* newboardshrunk.png in Resources */,
+				81B238851B1E40FE00025429 /* home_blue.png in Resources */,
 				8101FC401AE509DF003B9F16 /* Main.storyboard in Resources */,
 				8105CF5B1B1A054E00497C34 /* 6@2x.png in Resources */,
+				81B238881B1E40FE00025429 /* home_yellow.png in Resources */,
 				8101FC7E1AE50C5F003B9F16 /* dog.png in Resources */,
 				8105CF491B19EE9700497C34 /* circle_blue.png in Resources */,
+				81B238871B1E40FE00025429 /* home_orange.png in Resources */,
+				81B238861B1E40FE00025429 /* home_green.png in Resources */,
 				8105CF4A1B19EE9700497C34 /* circle_green.png in Resources */,
 				8101FC791AE50C5F003B9F16 /* background.jpg in Resources */,
 				8105CF571B1A054E00497C34 /* 2@2x.png in Resources */,

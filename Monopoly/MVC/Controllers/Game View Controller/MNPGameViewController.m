@@ -22,6 +22,8 @@ const int dx = 200, dy = 200;
 @property (strong, nonatomic) MNPPlayer *currentPlayer;
 @property (strong, nonatomic) MNPSpace *currentSpace;
 
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *houses;
+
 @property (weak, nonatomic) IBOutlet UILabel *currentPlayerNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *currentPlayerCashLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *currentPlayerToken;
@@ -53,6 +55,7 @@ const int dx = 200, dy = 200;
 
   self.gameManager = [MNPGameManager sharedManager];
   self.gameManager.delegate = self;
+  [_gameManager updateGameManager];
   _someCount = 2;
 
   NSString *path = [[NSBundle mainBundle] pathForResource: @"MonopolySpaces" ofType: @"plist"];
@@ -231,6 +234,24 @@ const int dx = 200, dy = 200;
   }
 }
 
+- (void)currentPlayerBuyCurrentBuilding {
+
+  if (_currentPlayer.playerCash < _currentSpace.cost) {
+    [self createAlertViewNotEnoughMoneyForBuyingBuilding];
+  } else {
+    [_gameManager player:_currentPlayer buyBuildingAtSpace:_currentSpace];
+  }
+}
+
+- (void)currentPlayerUpdateCurrentBuilding {
+  
+  if (_currentPlayer.playerCash < _currentSpace.cost) {
+    [self createAlertViewNotEnoughMoneyForUpdateBuilding];
+  } else {
+    [_gameManager player:_currentPlayer updateBuildingAtSpace:_currentSpace];
+  }
+}
+
 #pragma mark - IBActions
 
 - (IBAction)exitButtonPressed:(id)sender {
@@ -240,7 +261,7 @@ const int dx = 200, dy = 200;
   MNPMenuViewController *menuViewController =
   [storyboard instantiateViewControllerWithIdentifier:@"menuViewController"];
 
-
+  //[self dismissViewControllerAnimated:NO completion:nil];
   [self presentViewController:menuViewController animated:YES completion:nil];
 }
 
@@ -367,19 +388,55 @@ const int dx = 200, dy = 200;
 - (void)gameManager:(MNPGameManager *)gameManager currentPlayerSuccesfullyBuyFactory:(MNPPlayer *)player {
 
   [self showUserDetailsWithPlayer:player];
+  NSInteger spaceNumber = player.currentSpace;
+  for (UIImageView *imageView in self.houses) {
+    if (imageView.tag == spaceNumber) {
+      imageView.image = [UIImage imageNamed:player.houseImagePath];
+      break;
+    }
+  }
 
-#warning  put home icon into this space;
 }
 
 - (void)gameManager:(MNPGameManager *)gameManager currentPlayerSuccesfullyBuyRailroad:(MNPPlayer *)player {
 
   [self showUserDetailsWithPlayer:player];
 
-  #warning  put home icon into this space;
+  NSInteger spaceNumber = player.currentSpace;
+  for (UIImageView *imageView in self.houses) {
+    if (imageView.tag == spaceNumber) {
+      imageView.image = [UIImage imageNamed:player.houseImagePath];
+      break;
+    }
+  }
+}
+
+- (void)gameManager:(MNPGameManager *)gameManager currentPlayerSuccesfullyBuyBuilding:(MNPPlayer *)player {
+
+  [self showUserDetailsWithPlayer:player];
+  NSInteger spaceNumber = player.currentSpace;
+  for (UIImageView *imageView in self.houses) {
+    if (imageView.tag == spaceNumber) {
+      imageView.image = [UIImage imageNamed:player.houseImagePath];
+      break;
+    }
+  }
+}
+
+- (void)gameManager:(MNPGameManager *)gameManager currentPLayerSuccesfullyUpdateBuilding:(MNPPlayer *)player {
+
+  [self showUserDetailsWithPlayer:player];
 }
 
 - (void)gameManager:(MNPGameManager *)gameManager currentPlayerKnockoutFromGame:(MNPPlayer *)player {
+
   [self createAlertViewKnockoutFromGamePlayer:player];
+  for (UIImageView *imageView in self.houses) {
+    NSData *image1Data = UIImagePNGRepresentation(imageView.image);
+    NSData *image2Data = UIImagePNGRepresentation([UIImage imageNamed:player.houseImagePath]);
+    if ([image1Data isEqualToData:image2Data])
+      imageView.image = nil;
+  }
 }
 
 - (void)gameManager:(MNPGameManager *)gameManager currentPlayerSuccesfullyPaidRent:(MNPPlayer *)player {
@@ -418,6 +475,28 @@ const int dx = 200, dy = 200;
   [_gameManager player:player mustPayRentToRailroadOwner:railroadOwner atTheRateOf:cost];
 }
 
+#pragma mark - MNPGameManager Building Spaces
+
+- (void)gameManager:(MNPGameManager *)gameManager currentPlayer:(MNPPlayer *)player stayAtFreeBuilding:(MNPSpace *)space {
+
+  self.currentSpace = space;
+  self.currentPlayer = player;
+  [self createAlertViewStayAtFreeBuilding:space.factoryName withCost:space.cost];
+}
+
+- (void)gameManager:(MNPGameManager *)gameManager currentPlayer:(MNPPlayer *)player mustPayMoney:(NSInteger)cost toBuildingOwner:(MNPPlayer *)buildingOwner {
+  
+  self.currentPlayer = player;
+  [self createAlertViewStayAtOccupiedBuildingByPlayer:buildingOwner withRentCost:cost];
+  [_gameManager player:player mustPayRentToBuildingOwner:buildingOwner atTheRateOf:cost];
+}
+
+- (void)gameManager:(MNPGameManager *)gameManager currentPlayer:(MNPPlayer *)player stayAtOwnBuilding:(MNPSpace *)space {
+
+  self.currentPlayer = player;
+  self.currentSpace = space;
+  [self createAlertViewStayAtOwnBuilding:space.factoryName withCost:space.cost];
+}
 
 
 #pragma mark - ActionSheet
@@ -435,6 +514,28 @@ const int dx = 200, dy = 200;
 
 
 #pragma mark - AlertView
+
+- (void)createAlertViewStayAtOwnBuilding:(NSString *)buildingName withCost:(NSInteger)cost {
+
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:buildingName
+                                                      message:[NSString stringWithFormat:@"Do you want to update your building by %ld $", (long)cost]
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:@"Update Building", @"Ignore", nil];
+
+  [alertView show];
+}
+
+- (void)createAlertViewStayAtFreeBuilding:(NSString *)buildingName withCost:(NSInteger)cost {
+
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:buildingName
+                                                      message:[NSString stringWithFormat:@"Do you want to buy building by %ld $", (long)cost]
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:@"Buy Building", @"Ignore", nil];
+
+  [alertView show];
+}
 
 - (void)createAlertViewStayAtFreeRailroad:(NSString *)railroadName withCost:(NSInteger)cost {
 
@@ -479,6 +580,28 @@ const int dx = 200, dy = 200;
   [alertView show];
 }
 
+- (void)createAlertViewNotEnoughMoneyForUpdateBuilding {
+
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                      message:@"You have enough money to update the building"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Ok"
+                                            otherButtonTitles:nil];
+
+  [alertView show];
+}
+
+- (void)createAlertViewNotEnoughMoneyForBuyingBuilding {
+
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                      message:@"You have enough money to buy the building"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Ok"
+                                            otherButtonTitles:nil];
+
+  [alertView show];
+}
+
 - (void)createAlertViewNotEnoughMoneyForBuyingRailroad {
 
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
@@ -497,6 +620,17 @@ const int dx = 200, dy = 200;
                                                      delegate:self
                                             cancelButtonTitle:nil
                                             otherButtonTitles:@"Buy Factory", @"Ignore", nil];
+
+  [alertView show];
+}
+
+- (void)createAlertViewStayAtOccupiedBuildingByPlayer:(MNPPlayer *)owner withRentCost:(NSInteger)rentCost {
+
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Territory occupied by %@",owner.playerName]
+                                                      message:[NSString stringWithFormat:@"You must pay %ld", (long)rentCost]
+                                                     delegate:self
+                                            cancelButtonTitle:@"Ok"
+                                            otherButtonTitles:nil];
 
   [alertView show];
 }
@@ -600,6 +734,16 @@ const int dx = 200, dy = 200;
   [alertView show];
 }
 
+- (void)createAlertViewContinueSeatInJail {
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Jail"
+                                                      message:[NSString stringWithFormat:@"You still sitting in jail"]
+                                                     delegate:self
+                                            cancelButtonTitle:@"Okay :("
+                                            otherButtonTitles:nil];
+
+  [alertView show];
+}
+
 - (void)createAlertViewForRequestStayInParking {
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Free Parking"
                                                       message:[NSString stringWithFormat:@"Do you want to stay in the parking?"]
@@ -609,6 +753,16 @@ const int dx = 200, dy = 200;
 
   [alertView show];
 }
+- (void)createAlertViewNotEnoughtMoneyForRescueFromJail {
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Jail"
+                                                      message:[NSString stringWithFormat:@"You have no enough money for rescue from jail"]
+                                                     delegate:self
+                                            cancelButtonTitle:@"Okay"
+                                            otherButtonTitles:nil];
+
+  [alertView show];
+}
+
 
 
 #pragma mark - UIAlertViewDelegate methods
@@ -641,6 +795,10 @@ const int dx = 200, dy = 200;
     [self completeGame];
   } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Buy Railroad"]) {
     [self currentPlayerBuyCurrentRailroad];
+  } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Buy Building"]) {
+    [self currentPlayerBuyCurrentBuilding];
+  } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Update Building"]) {
+    [self currentPlayerUpdateCurrentBuilding];
   }
 }
 
@@ -650,8 +808,11 @@ const int dx = 200, dy = 200;
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 
   if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Pay 50$"]) {
-
-    [_gameManager player:self.currentPlayer mustPaytaxAtTheRateOf:50];
+    if (self.currentPlayer.playerCash > 50) {
+      [_gameManager player:self.currentPlayer rescuedFromJailByMoney:50];
+    } else {
+      [self createAlertViewNotEnoughtMoneyForRescueFromJail];
+    }
   }
 }
 
@@ -688,7 +849,7 @@ const int dx = 200, dy = 200;
         case 5:dong2.image = [UIImage imageNamed:@"5@2x.png"];break;
         case 6:dong2.image = [UIImage imageNamed:@"6@2x.png"];break;
       }
-      NSNumber *rollDice = @(5);
+      NSNumber *rollDice = @(result1 + result2);
       self.firstRoll = result1;
       self.secondRoll = result2;
       --self.someCount;
@@ -706,6 +867,8 @@ const int dx = 200, dy = 200;
           [self rescueFromJailByMoney];
           [_gameManager performCurrentPlayerActionWithDice:rollDice];
           return;
+        } else {
+          [self createAlertViewContinueSeatInJail];
         }
         --self.currentPlayer.countOfFreeRolling;
         [_gameManager performCurrentPlayerActionInJail];

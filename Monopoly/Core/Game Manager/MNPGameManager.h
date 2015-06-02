@@ -81,6 +81,21 @@ stayAtFreeMunicipalFactory:(MNPSpace *)space;
  stayAtFreeRailroad:(MNPSpace *)space;
 
 
+// Stay at Building
+
+- (void)gameManager:(MNPGameManager *)gameManager
+    currentPlayer:(MNPPlayer *)player
+    mustPayMoney:(NSInteger)cost
+    toBuildingOwner:(MNPPlayer *)buildingOwner;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+    currentPlayer:(MNPPlayer *)player
+ stayAtFreeBuilding:(MNPSpace *)space;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+      currentPlayer:(MNPPlayer *)player
+  stayAtOwnBuilding:(MNPSpace *)space;
+
 //Successfull buying
 
 - (void)gameManager:(MNPGameManager *)gameManager
@@ -91,6 +106,14 @@ currentPlayerSuccesfullyBuyRailroad:(MNPPlayer *)playr;
 
 - (void)gameManager:(MNPGameManager *)gameManager
 currentPlayerSuccesfullyPaidRent:(MNPPlayer *)player;
+
+- (void)gameManager:(MNPGameManager *)gameManager
+currentPlayerSuccesfullyBuyBuilding:(MNPPlayer *)player;
+
+// Succesfull update
+
+- (void)gameManager:(MNPGameManager *)gameManager
+currentPLayerSuccesfullyUpdateBuilding:(MNPPlayer *)player;
 
 
 // Player deleted
@@ -108,6 +131,7 @@ currentPlayerKnockoutFromGame:(MNPPlayer *)player;
 // Init methods
 
 + (id)sharedManager;
+- (void)updateGameManager;
 
 // Public methods
 
@@ -127,10 +151,14 @@ currentPlayerKnockoutFromGame:(MNPPlayer *)player;
 - (void)player:(MNPPlayer *)player mustPaytaxAtTheRateOf:(NSInteger)tax;
 - (void)player:(MNPPlayer *)player mustPayRentToFactoryOwner:(MNPPlayer *)owner atTheRateOf:(NSInteger)rent;
 - (void)player:(MNPPlayer *)player mustPayRentToRailroadOwner:(MNPPlayer *)owner atTheRateOf:(NSInteger)rent;
+- (void)player:(MNPPlayer *)player mustPayRentToBuildingOwner:(MNPPlayer *)owner atTheRateOf:(NSInteger)rent;
 
 
+- (void)player:(MNPPlayer *)player buyBuildingAtSpace:(MNPSpace *)space;
 - (void)player:(MNPPlayer *)player buyFactoryAtSpace:(MNPSpace *)space;
 - (void)player:(MNPPlayer *)player buyRailroadAtSpace:(MNPSpace *)space;
+
+- (void)player:(MNPPlayer *)player updateBuildingAtSpace:(MNPSpace *)space;
 
 - (NSInteger)getNumberOfExistPlayers;
 
