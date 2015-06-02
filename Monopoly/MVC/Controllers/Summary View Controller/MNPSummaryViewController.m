@@ -10,6 +10,7 @@
 #import "MNPGameManager.h"
 
 #import "MNPPlayer.h"
+#import "MNPMenuViewController.h"
 
 @interface MNPSummaryViewController ()
 
@@ -30,6 +31,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)playAgainButtonPressed:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                         bundle:nil];
+    MNPMenuViewController *menuViewController =
+    [storyboard instantiateViewControllerWithIdentifier:@"menuViewController"];
+
+    //[self dismissViewControllerAnimated:NO completion:nil];
+    [self presentViewController:menuViewController animated:YES completion:nil];
 }
 
 /*
